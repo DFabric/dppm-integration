@@ -12,9 +12,6 @@ keep_data_dir=true
 # Remove temporary data dir at error/exit
 trap '${keep_data_dir} || rm -rf "$DATA_DIR"' EXIT INT QUIT TERM ABRT
 
-echo "DATA_DIR: $DATA_DIR"
-echo '{"groups":[], "users": []}' > $DATA_DIR/permissions.json
-
 [ -d "$DPPM_REST_API_DIR" ] || git clone $DPPM_REST_API_GIT $DPPM_REST_API_DIR
 cd $DPPM_REST_API_DIR
 
